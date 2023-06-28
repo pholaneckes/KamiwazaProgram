@@ -1,0 +1,25 @@
+{
+  "item.kamiwaza_program.kamiwaza_shot": "超能相机",
+  "item.kamiwaza_program.kamiwaza_flash": "超能闪光灯",
+  "itemGroup.kamiwaza_program.kwp_group": "超能程式",
+
+  "entity.kamiwaza_program.turbomin": "加速精灵",
+
+  "kwp.text.min_chosen": "已选择：",
+  "kwp.text.id": "实体ID：",
+  "kwp.text.hp": "生命值：",
+  "kwp.text.owner_name": "所有者：",
+  "kwp.text.empty_in": "未选择目标",
+  "kwp.text.card_chosen": "已扫描：",
+  "kwp.text.empty_scan": "未载入",
+  "kwp.txt.charge": "CHARGE!!",
+
+  "key.kwp": "超能程式",
+
+  "key.kamiwaza_program.alise_promin": "召唤",
+  "key.kamiwaza_program.scan": "读取超能卡",
+
+  "item.kamiwaza_program.turbo_card": "加速超能卡",
+
+  "kwp.txt.item_unfounded": "没有找到对应物品"
+}

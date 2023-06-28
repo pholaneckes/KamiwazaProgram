@@ -1,0 +1,25 @@
+{
+  "item.kamiwaza_program.kamiwaza_shot": "Kamiwaza Shot",
+  "item.kamiwaza_program.kamiwaza_flash": "Kamiwaza Flash",
+  "itemGroup.kamiwaza_program.kwp_group": "Kamiwaza Program",
+
+  "entity.kamiwaza_program.turbomin": "Turbomin",
+
+  "kwp.text.min_chosen": "Chosen min: ",
+  "kwp.text.id": "Entity ID: ",
+  "kwp.text.hp": "HP: ",
+  "kwp.text.owner_name": "Owner: ",
+  "kwp.text.empty_in": "Empty",
+  "kwp.text.card_chosen": "Scan：",
+  "kwp.text.empty_scan": "Not Scan",
+  "kwp.txt.charge": "CHARGE!!",
+
+  "key.kwp": "Kamiwaza Program",
+
+  "key.kamiwaza_program.alise_promin": "Summon Promins",
+  "key.kamiwaza_program.scan": "Pro-card Scan",
+
+  "item.kamiwaza_program.turbo_card": "Turbo-Card",
+
+  "kwp.txt.item_unfounded": "Item Not Found"
+}
