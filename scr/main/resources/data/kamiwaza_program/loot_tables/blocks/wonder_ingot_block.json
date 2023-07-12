@@ -1,0 +1,20 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "name": "wonder_ingot_block",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kamiwaza_program:wonder_ingot_block"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

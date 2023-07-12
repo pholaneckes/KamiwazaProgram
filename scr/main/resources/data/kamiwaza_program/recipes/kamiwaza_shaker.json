@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P%P",
+    "HbB",
+    "P%P"
+  ],
+  "key": {
+    "P": {
+      "item": "kamiwaza_program:wonder_pane"
+    },
+    "H": {
+      "item": "redstone_lamp"
+    },
+    "b": {
+      "item": "comparator"
+    },
+    "B": {
+      "item": "glass_pane"
+    },
+    "%": {
+      "item": "kamiwaza_program:wonder_ingot_block"
+    }
+  },
+  "result": {
+    "item": "kamiwaza_program:kamiwaza_shaker",
+    "count": 1
+  }
+}

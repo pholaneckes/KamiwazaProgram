@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "kamiwaza_program:wonder_ingot_block"
+    }
+  },
+  "result": {
+    "item": "kamiwaza_program:wonder_pane",
+    "count": 1
+  }
+}

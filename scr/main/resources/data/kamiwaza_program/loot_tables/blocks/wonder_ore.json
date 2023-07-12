@@ -1,0 +1,20 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "name": "wonder_ore",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kamiwaza_program:wonder_ore"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

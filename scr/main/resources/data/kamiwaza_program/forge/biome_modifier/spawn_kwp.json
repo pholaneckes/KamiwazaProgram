@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:desert",
+    "minecraft:plains",
+    "minecraft:desert",
+    "minecraft:mushroom_fields",
+    "minecraft:sunflower_plains",
+    "minecraft:badlands",
+    "minecraft:beach",
+    "minecraft:stony_shore"
+  ],
+  "spawners": {
+    "type": "kamiwaza_program:turbomin",
+    "weight": 67,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "entity",
+  "pools": [
+    {
+      "name": "turbomin",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kamiwaza_program:wonder_ingot"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " HB",
+    "%LY",
+    "  B"
+  ],
+  "key": {
+    "L": {
+      "item": "lever"
+    },
+    "H": {
+      "item": "redstone_lamp"
+    },
+    "Y": {
+      "item": "glowstone"
+    },
+    "B": {
+      "item": "glass_pane"
+    },
+    "%": {
+      "item": "kamiwaza_program:wonder_ingot_block"
+    }
+  },
+  "result": {
+    "item": "kamiwaza_program:kamiwaza_flash",
+    "count": 1
+  }
+}

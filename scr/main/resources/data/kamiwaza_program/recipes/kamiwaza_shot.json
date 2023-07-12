@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #H",
+    "ZB#",
+    "%%%"
+  ],
+  "key": {
+    "#": {
+      "item": "kamiwaza_program:wonder_ingot"
+    },
+    "H": {
+      "item": "polished_blackstone_button"
+    },
+    "Z": {
+      "item": "repeater"
+    },
+    "B": {
+      "item": "glass_pane"
+    },
+    "%": {
+      "item": "kamiwaza_program:wonder_ingot_block"
+    }
+  },
+  "result": {
+    "item": "kamiwaza_program:kamiwaza_shot",
+    "count": 1
+  }
+}

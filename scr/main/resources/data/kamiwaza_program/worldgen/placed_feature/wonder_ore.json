@@ -1,0 +1,48 @@
+{
+  "feature": {
+    "type": "minecraft:ore",
+    "config": {
+      "size": 3,
+      "discard_chance_on_air_exposure": 0.3,
+      "targets": [
+        {
+          "target": {
+            "predicate_type": "minecraft:tag_match",
+            "tag": "forge:end_stones"
+          },
+          "state": {
+            "Name": "kamiwaza_program:wonder_ore"
+          }
+        }
+      ]
+    }
+  },
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 3
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 9
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": 34
+        },
+        "max_inclusive": {
+          "absolute": 21
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

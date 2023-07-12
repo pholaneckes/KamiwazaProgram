@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "kamiwaza_program:wonder_ore"
+  },
+  "result": "kamiwaza_program:wonder_ingot",
+  "experience": 0.71,
+  "cookingtime": 70
+}
