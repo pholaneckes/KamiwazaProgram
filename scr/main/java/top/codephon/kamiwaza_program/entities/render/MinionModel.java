@@ -58,7 +58,7 @@ public class MinionModel extends GeoModel<MinionEntity> {
     //isSmall是 是否小写，可以删去但不建议，之后枚举还要用
     public static String getMinName(MinionEntity animatable, boolean isSmall){
         //regex:是所在包名路径
-        String name = animatable.getClass().getName().replaceAll("top.codephon.kamiwaza_program.entities.mins.","");
+        String name = animatable.getClass().getName().replaceAll("top.codephon.kamiwaza_program.entities.mins.","").replaceAll("temp.","");
         name = isSmall ? name.toLowerCase() : name.toUpperCase();
         return name;
     }

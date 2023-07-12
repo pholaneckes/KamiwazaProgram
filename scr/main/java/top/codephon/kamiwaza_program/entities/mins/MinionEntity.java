@@ -6,6 +6,9 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -25,6 +28,7 @@ import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInst
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
+import top.codephon.kamiwaza_program.entities.Attri;
 
 //自己的实体大类
 public class MinionEntity extends TamableAnimal implements GeoAnimatable {
@@ -88,7 +92,8 @@ public class MinionEntity extends TamableAnimal implements GeoAnimatable {
 
     //创建实体属性 如移动速度（MOVEMENT_SPEED），攻击伤害（ATTACK_DAMAGE）等，最大生命值（MAX_HEALTH）是必须的
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.35F).add(Attributes.ATTACK_DAMAGE, 2.5D).add(Attributes.MAX_HEALTH, 100.0F);
+                                                                                                                                              //为自己的实体添加实体属性 .add(实体属性类.属性字段名.get())
+        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.35F).add(Attributes.ATTACK_DAMAGE, 2.5D).add(Attributes.MAX_HEALTH, 100.0F).add(Attri.PROMIN_ENERGY.get());
     }
 
     //注册目标 addGoal后的第一项数字代表优先级0为最优先，其次是1，2，3，4....
@@ -151,7 +156,8 @@ public class MinionEntity extends TamableAnimal implements GeoAnimatable {
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverWorld, DifficultyInstance difficultyInstance, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag tag) {
         this.getEntityData().set(EMOTION,"normal");
-        this.getEntityData().set(ISBUGGED,false);
+        this.getEntityData().set(ISBUGGED,true);
+        this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY,-1,0,false,true));
         return super.finalizeSpawn(serverWorld, difficultyInstance, spawnType, spawnGroupData, tag);
     }
 
