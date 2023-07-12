@@ -1,9 +1,21 @@
 {
   "item.kamiwaza_program.kamiwaza_shot": "超能相机",
   "item.kamiwaza_program.kamiwaza_flash": "超能闪光灯",
+  "item.kamiwaza_program.kamiwaza_file": "超能文档",
+  "item.kamiwaza_program.turbo_card": "加速超能卡",
+  "item.kamiwaza_program.wonder_ingot": "WONDER锭",
+  "block.kamiwaza_program.wonder_ingot_block": "WONDER锭块",
+  "block.kamiwaza_program.wonder_ore": "WONDER锭矿",
   "itemGroup.kamiwaza_program.kwp_group": "超能程式",
 
+  "item.minecraft.tipped_arrow.effect.energy_charge": "能量充入之箭",
+  "item.minecraft.potion.effect.energy_charge": "能量充入药水",
+  "item.minecraft.splash_potion.effect.energy_charge": "喷溅型能量充入药水",
+  "item.minecraft.lingering_potion.effect.energy_charge": "滞留型能量充入药水",
+
+  "entity.kamiwaza_program.none": "占位",
   "entity.kamiwaza_program.turbomin": "加速精灵",
+  "effect.kamiwaza_program.energy_charge": "能量充入",
 
   "kwp.text.min_chosen": "已选择：",
   "kwp.text.id": "实体ID：",
@@ -12,14 +24,24 @@
   "kwp.text.empty_in": "未选择目标",
   "kwp.text.card_chosen": "已扫描：",
   "kwp.text.empty_scan": "未载入",
-  "kwp.txt.charge": "CHARGE!!",
+  "kwp.txt.charge": "§cCHARGE!!",
+  "kwp.text.energy_not": "§e能量不足！！",
+  "kwp.txt.3xspeed": "的速度3x！！",
+  "kwp.text.already_do": "重复执行！",
+  "kwp.text.for_me_already": "已选择自己作为目标",
+  "kwp.txt.searching_for_true": "搜索... 发现！！",
+  "kwp.txt.searching_for_false": "搜索...  结果: 这里没有~",
+  "kwp.text.debug_comp": "§8调试完成！",
+  "kwp.txt.read_comp": "§3读取完毕！",
 
   "key.kwp": "超能程式",
+  "kwp.pro_energy": "普洛能量",
 
   "key.kamiwaza_program.alise_promin": "召唤",
   "key.kamiwaza_program.scan": "读取超能卡",
 
-  "item.kamiwaza_program.turbo_card": "加速超能卡",
+  "kwp.txt.item_unfounded": "没有找到对应物品",
 
-  "kwp.txt.item_unfounded": "没有找到对应物品"
+  "kwp.gui.wikipa": "超能维基",
+  "wiki.turbomin": "加速实体"
 }

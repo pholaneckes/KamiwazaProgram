@@ -1,8 +1,21 @@
 {
   "item.kamiwaza_program.kamiwaza_shot": "Kamiwaza Shot",
   "item.kamiwaza_program.kamiwaza_flash": "Kamiwaza Flash",
-  "itemGroup.kamiwaza_program.kwp_group": "Kamiwaza Program",
+  "item.kamiwaza_program.kamiwaza_file": "Kamiwaza File",
+  "item.kamiwaza_program.turbo_card": "Turbo-Card",
+  "item.kamiwaza_program.wonder_ingot": "Wonder Ingot",
+  "block.kamiwaza_program.wonder_ingot_block": "Wonder Ingot Block",
+  "block.kamiwaza_program.wonder_ore": "Wonder Ore",
 
+  "item.minecraft.tipped_arrow.effect.energy_charge": "Energy Charge Arrow",
+  "item.minecraft.potion.effect.energy_charge": "Energy Charge Potion",
+  "item.minecraft.splash_potion.effect.energy_charge": "Energy Charge Splash Potion",
+  "item.minecraft.lingering_potion.effect.energy_charge": "Energy Charge Lingering Potion",
+
+  "itemGroup.kamiwaza_program.kwp_group": "Kamiwaza Program",
+  "effect.kamiwaza_program.energy_charge": "Energy Charge",
+
+  "entity.kamiwaza_program.none": "None",
   "entity.kamiwaza_program.turbomin": "Turbomin",
 
   "kwp.text.min_chosen": "Chosen min: ",
@@ -13,13 +26,23 @@
   "kwp.text.card_chosen": "Scan：",
   "kwp.text.empty_scan": "Not Scan",
   "kwp.txt.charge": "CHARGE!!",
+  "kwp.text.energy_not": "§eEnergy not enough",
+  "kwp.txt.3xspeed": "'s speed 3x already!",
+  "kwp.text.already_do": "Already did!!",
+  "kwp.txt.item_unfounded": "Item Not Found",
+  "kwp.text.for_me_already": "Use the waza to yourself",
+  "kwp.txt.searching_for_true": "Searching...  Result: Found!!",
+  "kwp.txt.searching_for_false": "Searching...  Result: Unfounded...",
+  "kwp.text.debug_comp": "Debugged!",
+  "kwp.txt.read_comp": "Read!",
 
   "key.kwp": "Kamiwaza Program",
+  "kwp.pro_energy": "Promin Energy",
 
   "key.kamiwaza_program.alise_promin": "Summon Promins",
   "key.kamiwaza_program.scan": "Pro-card Scan",
 
-  "item.kamiwaza_program.turbo_card": "Turbo-Card",
+  "kwp.gui.wikipa": "Kamiwaza Wiki",
+  "wiki.turbomin": "Speed Up Object"
 
-  "kwp.txt.item_unfounded": "Item Not Found"
 }
