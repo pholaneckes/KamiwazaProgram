@@ -26,6 +26,9 @@ public class CreativeTabReg {
                 output.accept(kamiwazaFlash.get());
                 output.accept(kamiwazaShot.get());
                 output.accept(turboCard.get());
+                output.accept(wonderIngot.get());
+                output.accept(wonderIngotBlockItem.get());
+                output.accept(wonderOreItem.get());
             //构建
             }).build());
 }

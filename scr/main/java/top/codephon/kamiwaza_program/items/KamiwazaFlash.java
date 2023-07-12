@@ -1,6 +1,26 @@
 package top.codephon.kamiwaza_program.items;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import top.codephon.kamiwaza_program.entities.mins.MinionEntity;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Function;
+
+import static java.util.Comparator.comparing;
+import static top.codephon.kamiwaza_program.tools.ModTools.getLookPos;
+import static top.codephon.kamiwaza_program.tools.ModTools.sendChat;
 
 //继承不要继承错 一定是minecraft下的
 public class KamiwazaFlash extends Item {
@@ -10,4 +30,24 @@ public class KamiwazaFlash extends Item {
         super(new Properties().stacksTo(1));
     }
 
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        BlockPos lookPos = getLookPos(player);
+        double x = lookPos.getX();
+        double y = lookPos.getY();
+        double z = lookPos.getZ();
+        List<MinionEntity> entityList = level.getEntitiesOfClass(MinionEntity.class,
+                new AABB(x - 1, y - 3, z - 1, x + 2, y + 2, z + 2));
+        boolean b = entityList.stream().min(comparing(entity -> entity.distanceToSqr(x, y, z))).orElse(null) != null;
+        if(level.isClientSide) {
+            sendChat(player, Component.translatable("kwp.txt.searching_for_" + b).getString());
+        }
+        int size = entityList.size();
+        for (int i = 0; i < size; i++){
+            if(entityList.get(i).isBugged()) {
+                entityList.get(i).removeEffect(MobEffects.INVISIBILITY);
+            }
+        }
+        return super.use(level, player, hand);
+    }
 }

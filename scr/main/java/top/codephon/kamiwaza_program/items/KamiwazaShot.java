@@ -11,12 +11,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import top.codephon.kamiwaza_program.entities.finder.MinionSetup;
 import top.codephon.kamiwaza_program.entities.mins.MinionEntity;
 import top.codephon.kamiwaza_program.tools.Ways;
 
 import java.util.List;
 
 import static top.codephon.kamiwaza_program.entities.render.MinionModel.getMinName;
+import static top.codephon.kamiwaza_program.tools.ModTools.keepTime;
+import static top.codephon.kamiwaza_program.tools.ModTools.sendChat;
 
 //建议不同功能的分开为不同的类
 
@@ -35,9 +38,9 @@ public class KamiwazaShot extends Item {
         //判断上述NBT标签（集）内是否有标签，不是空的的话新建一下的标签
         if(itemStack.getTag().isEmpty()){
             //添加标签支持多种数据类型 示例为：String，Float与int，下面还有UUID
-            itemStack.getTag().putString("MinName","none");
+            itemStack.getTag().putString("ChosenName","none");
 //            itemStack.getTag().putFloat("MinionHP",-1);
-            itemStack.getTag().putInt("MinId",-1);
+            itemStack.getTag().putInt("ChosenId",-1);
             itemStack.getTag().putString("ScanName", "none");
             itemStack.getTag().putFloat("ScanHP", -1);
         }
@@ -55,14 +58,34 @@ public class KamiwazaShot extends Item {
             CompoundTag tag = player.getItemInHand(hand).getTag();
             //判断该实体是否是应该继续执行一下代码的实体
             if (onLooked instanceof MinionEntity minion && !tag.isEmpty()){
-                //获取该标签（集）下属的各种（上面才写的）标签
-                tag.putInt("MinId",minion.getId());
+                if(!minion.isBugged()) {
+                    keepTime = 0;
 //                tag.putFloat("MinionHP", minion.getHealth());
-                tag.putString("MinName", getMinName(minion, true));
-                //判断实体是否被驯服 是的话继续执行
-                if(minion.isTame()){
-                    tag.putUUID("Owner",minion.getOwner().getUUID());
+                    tag.putString("ChosenName", getMinName(minion, true));
+                    //判断实体是否被驯服 是的话继续执行
+                    if (minion.isTame()) {
+                        tag.putUUID("Owner", minion.getOwner().getUUID());
+                        if(minion.getOwner().equals(player)){
+                            //获取该标签（集）下属的各种（上面才写的）标签
+                            tag.putInt("ChosenId", minion.getId());
+                        }
+                    }
+                }else {
+                    if(player.isShiftKeyDown() && !level.isClientSide){
+                        keepTime++;
+                        sendChat(player, ""+keepTime);
+                        if(keepTime > 17){
+                            keepTime = 0;
+                            sendChat(player,"kwp.text.debug_comp");
+                            player.addItem(new ItemStack(MinionSetup.MinSetUp.valueOf(getMinName(minion,false)).getMinCard()));
+                            minion.remove(Entity.RemovalReason.DISCARDED);
+                        }
+                    }else if(!level.isClientSide){
+                        keepTime = 0;
+                    }
                 }
+            }else {
+                keepTime = 0;
             }
         }
         return super.use(level, player, hand);
