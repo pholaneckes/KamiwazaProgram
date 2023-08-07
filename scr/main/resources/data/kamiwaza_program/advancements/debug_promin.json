@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "kamiwaza_program:kamiwaza_shot"
+    },
+    "title": {
+      "translate": "advancements.kamiwaza_program.debug.title"
+    },
+    "description": {
+      "translate": "advancements.kamiwaza_program.debug.info"
+    },
+    "frame": "task"
+  },
+  "parent": "kamiwaza_program:flashu",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {
+        "entity": {
+          "type": "#kamiwaza_program:promins"
+        }
+      }
+    }
+  }
+}

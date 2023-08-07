@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "kamiwaza_program:wonder_ingot_block"
+    },
+    "title": {
+      "translate": "advancements.kamiwaza_program.root.title"
+    },
+    "description": {
+      "translate": "advancements.kamiwaza_program.root.info"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "frame": "task"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kamiwaza_program:wonder_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

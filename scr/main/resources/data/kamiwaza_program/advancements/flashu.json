@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "kamiwaza_program:kamiwaza_flash"
+    },
+    "title": {
+      "translate": "advancements.kamiwaza_program.use_flashu.title"
+    },
+    "description": {
+      "translate": "advancements.kamiwaza_program.use_flashu.info"
+    },
+    "frame": "task"
+  },
+  "parent": "kamiwaza_program:root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "kamiwaza_program:kamiwaza_flash"
+          ]
+        }
+      }
+    }
+  }
+}
