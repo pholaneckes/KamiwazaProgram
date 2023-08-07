@@ -30,7 +30,7 @@ public class KWPImageButton extends Button {
     }
 
     public KWPImageButton(ResourceLocation icon, int x, int y, int w, int h, Component text, String name, Button.OnPress action, int dist, int tab) {
-        this(icon,x,y,w,h,text,name,action, Supplier::get, dist,18);
+        this(icon,x,y,w,h,text,name,action, Supplier::get, dist, tab);
     }
 
     public KWPImageButton(ResourceLocation icon, int x, int y, int w, int h, Component text, String name, Button.OnPress action, Button.CreateNarration createNarration, int dist, int tab) {

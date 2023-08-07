@@ -18,3 +18,5 @@ public class EffectReg {
     public static final RegistryObject<MobEffect> energyRecharge = EFFECTS.register("energy_charge",
             ()-> new EnergyCharge(MobEffectCategory.BENEFICIAL,0xf1984b));
 }
+
+//欢迎新朋友加入数码训兽师，本服务器支持手机电脑都可以玩的，萌新需要新手礼包的话可以找Dec领取

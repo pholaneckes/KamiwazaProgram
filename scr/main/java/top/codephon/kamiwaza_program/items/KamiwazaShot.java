@@ -73,7 +73,7 @@ public class KamiwazaShot extends Item {
                 }else {
                     if(player.isShiftKeyDown() && !level.isClientSide){
                         keepTime++;
-                        sendChat(player, ""+keepTime);
+                        sendChat(player,"kwp.text.debug_waiting");
                         if(keepTime > 17){
                             keepTime = 0;
                             sendChat(player,"kwp.text.debug_comp");

@@ -15,6 +15,7 @@ import top.codephon.kamiwaza_program.effects.EffectReg;
 import top.codephon.kamiwaza_program.effects.PotionReg;
 import top.codephon.kamiwaza_program.entities.Attri;
 import top.codephon.kamiwaza_program.entities.EntityReg;
+import top.codephon.kamiwaza_program.fluid.FluidReg;
 import top.codephon.kamiwaza_program.items.CreativeTabReg;
 import top.codephon.kamiwaza_program.items.ItemReg;
 import top.codephon.kamiwaza_program.network.NetworkRegHandler;
@@ -48,6 +49,9 @@ public class KamiwazaProgram {
         //注册药水
         PotionReg.POTIONS.register(modEventBus);
 
+        //注册流体
+        FluidReg.FLUIDS.register(modEventBus);
+        FluidReg.FLUID_TYPES.register(modEventBus);
 
         //这个是后续必须的 注册事件
         MinecraftForge.EVENT_BUS.register(this);

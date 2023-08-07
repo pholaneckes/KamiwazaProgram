@@ -83,6 +83,15 @@ public class keyListener {
                 }
             }
 
+            if (event.getKey() == LIN_SHI1.getKey().getValue()) {
+                if(event.getAction() == 1){
+                    Player player = Minecraft.getInstance().player;
+                    if(player != null){
+                        NetworkRegHandler.CHANNEL.sendToServer(new SendPack(player.getUUID(), (short) -1));
+                    }
+                }
+            }
+
             //作用：使用 カミ技能
             if(event.getKey() == USE_WAZA.getKey().getValue() && event.getAction() == 0){
                 //获取玩家

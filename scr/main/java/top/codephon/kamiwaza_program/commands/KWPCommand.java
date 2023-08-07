@@ -7,6 +7,8 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -18,6 +20,8 @@ import top.codephon.kamiwaza_program.entities.mins.MinionEntity;
 import top.codephon.kamiwaza_program.entities.mins.Turbomin;
 import top.codephon.kamiwaza_program.items.ItemReg;
 import top.codephon.kamiwaza_program.tools.Ways;
+
+import java.util.Random;
 
 import static top.codephon.kamiwaza_program.tools.ModTools.sendChat;
 
@@ -88,7 +92,6 @@ public class KWPCommand {
                                 return 0;
 
                             }))))
-
         );
     }
 

@@ -25,10 +25,17 @@ public class CreativeTabReg {
             .displayItems((parameters, output) -> {
                 output.accept(kamiwazaFlash.get());
                 output.accept(kamiwazaShot.get());
+                output.accept(kamiwazaShaker.get());
+                output.accept(kamiwazaFile.get());
                 output.accept(turboCard.get());
                 output.accept(wonderIngot.get());
                 output.accept(wonderIngotBlockItem.get());
                 output.accept(wonderOreItem.get());
+                output.accept(vegetOilBucket.get());
+                output.accept(wandaArmorHelmet.get());
+                output.accept(wandaArmorChestplate.get());
+                output.accept(wandaArmorLeggings.get());
+                output.accept(wandaArmorBoots.get());
             //构建
             }).build());
 }

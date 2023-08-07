@@ -8,20 +8,25 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.util.StringRepresentable;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.DistExecutor;
 import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.NotNull;
 import top.codephon.kamiwaza_program.KamiwazaProgram;
+import top.codephon.kamiwaza_program.entities.finder.MinionAttrys;
+import top.codephon.kamiwaza_program.entities.finder.MinionNameChineseSupports;
+import top.codephon.kamiwaza_program.entities.finder.MinionSetup;
 import top.codephon.kamiwaza_program.items.KamiwazaFile;
+import top.codephon.kamiwaza_program.tools.ModTools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static top.codephon.kamiwaza_program.entities.finder.MinionSetup.isEnglish;
-import static top.codephon.kamiwaza_program.entities.finder.MinionSetup.minionListDown;
+import static top.codephon.kamiwaza_program.entities.finder.MinionSetup.*;
+import static top.codephon.kamiwaza_program.screen.gui.MinionWikiInnerScreen.*;
 
 //仅客户端
 @OnlyIn(Dist.CLIENT)
@@ -107,14 +112,23 @@ public class MinionWikiScreen extends Screen {
                     //若字符不为空继续
                     if(!str.isEmpty()){
                         List<String> searchResult = new ArrayList<>();
-                        //判断是否是英文
+                        //判断是否不是英文
                         if(!isEnglish(str)){
-                            //todo
+                            //转换成UNICODE编码（枚举字段不支持中文）
+                            str = MinionNameChineseSupports.stringToUnicode(str,false);
+                            //遍历数组获取搜索结果
+                            for (int i = 0; i < MinionNameChineseSupports.INZHS.length; i++){
+                                String comp = MinionNameChineseSupports.INZHS[i];
+                                if (comp.contains(str)) {
+                                    //获取枚举项对应的 SerializedName
+                                    searchResult.add(MinionNameChineseSupports.MinZHSup.valueOf(comp).getName().toLowerCase());
+                                }
+                            }
                         }else {
                             //遍历数组获取搜索结果
                             for (int i = 0; i < minionListDown.length;i++){
                                 String comp = minionListDown[i];
-                                if(comp.contains(str)){
+                                if(comp.contains(str.toLowerCase())){
                                     searchResult.add(comp);
                                 }
                             }
@@ -122,6 +136,12 @@ public class MinionWikiScreen extends Screen {
                         //防止BUG
                         for (int i = 0; i <= 16; i++){
                             searchResult.add("none");
+                        }
+                        if(str.equalsIgnoreCase("lzh")){
+                            searchResult = new ArrayList<>();
+                            for (int i = 0; i < 16; i++) {
+                                searchResult.add("lzh");
+                            }
                         }
                         searched = searchResult.toArray(new String[0]);
                         doSearch = true;
@@ -155,7 +175,6 @@ public class MinionWikiScreen extends Screen {
                 page--;
                 DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> KamiwazaFile.OpenWikiGui::new);
             }
-            KamiwazaProgram.LOGGER.info("Left");
         },Component.nullToEmpty("kwp.text.l"));
         this.addWidget(imageButtonL);
 
@@ -166,7 +185,6 @@ public class MinionWikiScreen extends Screen {
                 page++;
                 DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> KamiwazaFile.OpenWikiGui::new);
             }
-            KamiwazaProgram.LOGGER.info("Right" +searchNeeds+ searchNeeds.length);
         },Component.nullToEmpty("kwp.text.r"));
         this.addWidget(imageButtonR);
 
@@ -223,11 +241,15 @@ public class MinionWikiScreen extends Screen {
     private static KWPImageButton addKWPIB(int width, int xA, int y, String min){
         return new KWPImageButton(getCardRes(min),width / 2 + xA, y, 64, 64,Component.translatable("entity.kamiwaza_program."+min), show(min), (button)->{
             KamiwazaProgram.LOGGER.info(min);
-        },49,26);
+            inner_name = min;
+            attribute = MinionSetup.MinSetUp.valueOf(min.toUpperCase()).getAttry().getName();
+            Boolean isMale = MinionSetup.MinSetUp.valueOf(min.toUpperCase()).isMale();
+            seiBetsu = isMale == null ? "none" : isMale ? "male" : "female";
+            DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> ModTools.OpenWikiInnerGui::new);
+        },49,29);
     }
 
-    private static ResourceLocation getCardRes(String min){
-        String[] minAvail = new String[]{"turbomin"};
+    static ResourceLocation getCardRes(String min){
         return ArrayUtils.contains(minAvail,min) ? new ResourceLocation(KamiwazaProgram.MOD_ID,"textures/item/card/"+min.replaceAll("min","")+".png") : new ResourceLocation(KamiwazaProgram.MOD_ID,"textures/item/card/none.png");
     }
 

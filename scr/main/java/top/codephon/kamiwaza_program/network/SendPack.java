@@ -1,9 +1,14 @@
 package top.codephon.kamiwaza_program.network;
 
+import com.mojang.brigadier.ParseResults;
+import net.minecraft.commands.CommandSource;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -14,17 +19,20 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkEvent;
-import org.lwjgl.glfw.GLFW;
+import org.joml.Vector3d;
+import top.codephon.kamiwaza_program.KamiwazaProgram;
 import top.codephon.kamiwaza_program.entities.Attri;
-import top.codephon.kamiwaza_program.entities.EntityReg;
 import top.codephon.kamiwaza_program.entities.finder.MinionSetup;
 import top.codephon.kamiwaza_program.entities.mins.MinionEntity;
 import top.codephon.kamiwaza_program.entities.mins.Turbomin;
 import top.codephon.kamiwaza_program.items.KamiwazaCard;
 import top.codephon.kamiwaza_program.items.KamiwazaShot;
+import top.codephon.kamiwaza_program.tools.ModTools;
 import top.codephon.kamiwaza_program.tools.Ways;
 
 import java.util.UUID;
@@ -92,6 +100,9 @@ public class SendPack {
             }
             if(type == 3){
                 toScan(uuid);
+            }
+            if(type == -1){
+                lin_shi1(uuid);
             }
         });
         ctx.get().setPacketHandled(true);
@@ -219,5 +230,24 @@ public class SendPack {
             sendChat(player,Component.translatable("kwp.txt.read_comp").getString());
             card.shrink(1);
         }
+    }
+
+    public static void lin_shi1(UUID uuid){
+        KamiwazaProgram.LOGGER.info("11qqaa");
+        Player player = (Player) pubServerLevel.getEntity(uuid);
+        BlockPos blockPos = ModTools.getLookPos(player);
+        player.setItemInHand(InteractionHand.MAIN_HAND,ItemStack.EMPTY);
+        String name = pubServerLevel.getBlockState(blockPos).getBlock().getName().getString();
+        String name2 = "";
+        if(name.length() > 10) {
+            name2 = name.substring(name.length()/2+1);
+            name = name.substring(0,name.length()/2);
+        }
+        String comm = "give @p cherry_sign{BlockEntityTag:{front_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"\"}','{\"text\":\""+name+"\"}','{\"text\":\""+name2+"\"}','{\"text\":\"\"}']}}}";
+        pubServerLevel.getServer().getCommands().performPrefixedCommand(
+                new CommandSourceStack(CommandSource.NULL, new Vec3(player.getX(), player.getY(), player.getZ()), Vec2.ZERO, pubServerLevel, 4, "",
+                        Component.literal(""), pubServerLevel.getServer(), null).withSuppressedOutput(),
+                (comm));
+        KamiwazaProgram.LOGGER.info(comm);
     }
 }

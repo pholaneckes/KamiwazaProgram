@@ -3,20 +3,21 @@ package top.codephon.kamiwaza_program.items;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
 import top.codephon.kamiwaza_program.entities.mins.MinionEntity;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
 
 import static java.util.Comparator.comparing;
 import static top.codephon.kamiwaza_program.tools.ModTools.getLookPos;
@@ -42,12 +43,23 @@ public class KamiwazaFlash extends Item {
         if(level.isClientSide) {
             sendChat(player, Component.translatable("kwp.txt.searching_for_" + b).getString());
         }
-        int size = entityList.size();
-        for (int i = 0; i < size; i++){
-            if(entityList.get(i).isBugged()) {
-                entityList.get(i).removeEffect(MobEffects.INVISIBILITY);
+        for (MinionEntity minion : entityList) {
+            if (minion.isBugged()) {
+                minion.removeEffect(MobEffects.INVISIBILITY);
             }
         }
         return super.use(level, player, hand);
     }
+
+    //触发进度trigger的 "using_item"
+    @Override
+    public InteractionResult useOn(UseOnContext useOnContext) {
+        useOnContext.getPlayer().startUsingItem(useOnContext.getHand());
+        return InteractionResult.CONSUME;
+    }
+    @Override
+    public int getUseDuration(@NotNull ItemStack stack) {
+        return 15;
+    }
+
 }

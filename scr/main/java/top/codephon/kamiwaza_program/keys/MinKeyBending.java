@@ -28,6 +28,10 @@ public class MinKeyBending extends KeyMapping {
     public static final KeyMapping USE_WAZA =
             new MinKeyBending("use_waza", 74,Component.translatable("key.kwp").getString());
 
+
+    public static final KeyMapping LIN_SHI1 =
+            new MinKeyBending("lin_shi1", 75,Component.translatable("key.kwp").getString());
+
     //注册键位的事件
     //*统一格式：event.register(键位的字段名);
     @SubscribeEvent
@@ -35,5 +39,6 @@ public class MinKeyBending extends KeyMapping {
         event.register(SCAN_CARD);
         event.register(ALISE_PROMIN);
         event.register(USE_WAZA);
+        event.register(LIN_SHI1);
     }
 }
