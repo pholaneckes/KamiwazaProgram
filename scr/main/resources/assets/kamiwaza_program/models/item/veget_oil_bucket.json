@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kamiwaza_program:item/veget_oil_bucket"
+  }
+}

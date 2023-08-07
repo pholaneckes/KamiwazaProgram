@@ -2,6 +2,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "kamiwaza_program:item/card/turbo"
+    "layer0": "kamiwaza_program:item/card/temo"
   }
 }

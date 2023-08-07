@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "item/none_with"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "kamiwaza_program:close": 0
+      },
+      "model": "kamiwaza_program:item/kamiwaza_shaker_open"
+    },
+	{
+      "predicate": {
+        "kamiwaza_program:close": 1
+      },
+      "model": "kamiwaza_program:item/kamiwaza_shaker_close"
+    }
+  ]
+}
