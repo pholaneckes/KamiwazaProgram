@@ -33,4 +33,6 @@ public class MinionRender extends GeoEntityRenderer<MinionEntity> {
         }
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }
+
+
 }
